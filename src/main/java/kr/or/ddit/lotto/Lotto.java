@@ -24,6 +24,7 @@ public class Lotto {
 			
 		}
 		
+		
 		Integer[] winNums = new Integer[ballNum];
 		winSet.toArray(winNums);
 		

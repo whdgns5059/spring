@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- service, dao 어노테이션 스캔 -->
+	<context:annotation-config />	
+
+	<!-- component-scan은 기본적으로 @Controller, @Service, @Dao, @Component
+		어노테이션을 사용한 클래스를 대상으로 spring bean을 만듬 -->
+		<!-- filter를 기본 필터가 아닌 커스터마이즈 필터 이용.. 
+			우리가 설정하고자 하는 service, dao에 대해서만 스캔하도록 include-filter를
+			이용하여 설정	
+		-->
+	<context:component-scan base-package="kr.or.ddit" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	</context:component-scan>
+	
+	<!-- exclusive는 filter false 없어도 됨.. 위 아래의 차이는 
+		위는 다 안읽는데 이것만 읽어라, 밑은 다 읽는데 이것만 읽지마라 임 결국 같은뜻-->	
+	<!-- 
+	<context:component-scan base-package="kr.or,ddit">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>	
+	-->
+	
+</beans>
