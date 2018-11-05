@@ -15,7 +15,8 @@ public class MvcController {
 	
 	private Logger logger = LoggerFactory.getLogger(MvcController.class);
 
-	//@RequestMapping이 붙은 메소드가 실행되기 전에 먼저 실행됨
+	//@RequestMapping이
+	//붙은 메소드가 실행되기 전에 먼저 실행됨
 	//해당 컨트롤러에서 공통적으로 사용될 속성이 있을 경우
 	//중복을 피하기 위해 @ModelAttribute 어노테이션을 적용한
 	//메소드를 통해 코드 중복을 막을 수 있음

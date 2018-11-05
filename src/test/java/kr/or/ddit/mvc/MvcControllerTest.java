@@ -30,7 +30,10 @@ public class MvcControllerTest {
 	private MockMvc mockMvc;
 
 	@Before
-	public void setUp() {
+	public void setUp(
+	
+	
+	) {
 		mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
 	@Test
