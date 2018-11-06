@@ -18,26 +18,12 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.or.ddit.test.ControllerTestConfig;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:kr/or/ddit/config/spring/servlet-context.xml"})
-@WebAppConfiguration
-public class MvcControllerTest {
+public class MvcControllerTest extends ControllerTestConfig{
 
-	@Autowired
-	private WebApplicationContext ctx;
-	
-	private MockMvc mockMvc;
-
-	@Before
-	public void setUp(
-	
-	
-	) {
-		mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
-	}
 	@Test
-	public void test() throws Exception {
+	public void mvcViewTest() throws Exception {
 		/***Given***/
 		
 		/***When***/
@@ -51,6 +37,20 @@ public class MvcControllerTest {
 		assertEquals("mvc/view", mav.getViewName());
 		assertEquals(4, rangers.size());
 		
+	}
+	
+	@Test
+	public void fileuploadViewTest() throws Exception {
+		/***Given***/
+		MvcResult mvcResult = mockMvc.perform(get("/mvc/fileupload")).andReturn();
+		
+		/***When***/
+		ModelAndView mav = mvcResult.getModelAndView();
+		
+		String viewName = mav.getViewName();
+		
+		/***Then***/
+		assertEquals("mvc/fileuploadView", viewName);
 		
 	}
 

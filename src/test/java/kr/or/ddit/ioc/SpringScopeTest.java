@@ -30,7 +30,7 @@ public class SpringScopeTest {
 		/***When***/
 
 		/***Then***/
-		assertEquals(boardDao, boardDaoSingleton);
+		assertNotEquals(boardDao, boardDaoSingleton);
 		
 		
 	}

@@ -48,8 +48,8 @@
 						<gcse:searchbox-only></gcse:searchbox-only>
 					</div>
 				</li>
-				<li><a href="/main.jsp">Main</a></li>
-				<li><a href="/index.jsp">Logout</a></li>
+				<li><a href="/main">Main</a></li>
+				<li><a href="/index">Logout</a></li>
 			</ul>
 		</div>
 	</div>

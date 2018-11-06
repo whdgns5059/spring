@@ -14,13 +14,13 @@ public class JavaConfig {
 	
 	//boardDao spring bean 등록
 	//xml의 <bean id=boardDao" class="kr.or.ddit.board.dao.BoardDao" />와 같음
-	@Bean
+	@Bean(name= {"boardDao"})
 	public BoardDaoInf getBoardDao() {
 		return new BoardDao();
 	}
 	
 	
-	@Bean
+	@Bean(name= {"boardService"})
 	public BoardServiceInf getBoardService() {
 		BoardServiceInf boardService = new BoardService();
 		boardService.setBoardDao(getBoardDao());

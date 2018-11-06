@@ -16,10 +16,10 @@ import kr.or.ddit.board.service.BoardServiceInf;
 @ContextConfiguration(classes= {JavaConfig.class})
 public class JavaConfigTest {
 
-	@Resource(name="getBoardDao")
+	@Resource(name="boardDao")
 	private BoardDaoInf boardDao;
 	
-	@Resource(name="getBoardService")
+	@Resource(name="boardService")
 	private BoardServiceInf boardService;
 	
 	@Test
@@ -30,6 +30,7 @@ public class JavaConfigTest {
 		/***When***/
 		
 		/***Then***/
+		
 		assertNotNull(boardDao);
 		assertNotNull(boardService);
 	}

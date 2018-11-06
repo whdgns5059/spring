@@ -35,7 +35,7 @@ public class PlaceholderTest {
 		assertEquals("pc17", user);
 		assertEquals("java", password);
 		assertEquals("oracle.jdbc.driver.OracleDriver", driver);
-		assertEquals("jdbc:oracle:thin@localhost:1521:xe", url);
+		assertEquals("jdbc:oracle:thin:@localhost:1521:xe", url);
 		
 		
 		
