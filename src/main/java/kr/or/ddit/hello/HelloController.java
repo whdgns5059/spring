@@ -115,6 +115,11 @@ public class HelloController {
 	}
 	
 	
+	//예외처리 uri
+	@RequestMapping("/exception")
+	public String view() {
+		throw new ArithmeticException();
+	}
 	
 }
 

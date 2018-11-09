@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.or.ddit.test.ControllerTestConfig;
 
-public class LoginViewTest extends ControllerTestConfig{
+public class UserControllerTest extends ControllerTestConfig{
 
 	@Test
 	public void loginViewTest() throws Exception {

@@ -8,7 +8,7 @@
 <title>login.jsp</title>
 <link href="../css/bootstrap.min.css" rel="styleSheet">
 <link href="../css/signin.css" rel="styleSheet" >
-<%@ include file="/common/basicLib.jsp"%>
+<%@ include file="/WEB-INF/view/common/basicLib.jsp"%>
 <script type="text/javascript">
 
 	function getCookie(cookieName){

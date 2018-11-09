@@ -1,45 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="/lib/basicLib.jsp"%>
-
+    pageEncoding="UTF-8"%>
 
 <div class="col-sm-3 col-md-2 sidebar">
 	<ul class="nav nav-sidebar">
-		<li class="hover"><a href="/board">새 게시판 추가 </a></li>
-	</ul>
-	<ul class="nav nav-sidebar">
-		<c:forEach items="${boardListDelY }" var="bl">
-			<li class="post hover"  value="${bl.brd_id }"><a>${bl.brd_name }</a></li>
-		</c:forEach>
+		<li class="active"><a href="/main">Main <span class="sr-only">(current)</span></a></li>
+		<li class="active"><a href="/user/userAllList">사용자 리스트</a></li>
+		<li class="active"><a href="/user/userPageList?page=1&pageSize=10">사용자 페이징 리스트</a></li>
+		<li class="active"><a href="/prod/prodPageList?page=1&pageSize=10">제품 리스트 </a></li>
+		<!-- 사용자 리스트 클릭시 : jspuser 전체정보 조회 화면 출력 -->
+	
+		<!-- 
+		0. 요청을 처리할 서블릿 생성 : UserServlet
+		1. jspuser 전체정보 조회 : userService.selectUserAll()
+			요청을 처리할 서블릿 생성
+		2. 	사용자 정보를 출력할 jsp : userAllList.jsp
+		
+		
+		 -->	
+		
 	</ul>
 </div>
-
-
-
-<script>
-	$(document).ready( function() {
-		$(".post").click(function() {
-			
-			
-			var brd_name = this.innerText;
-			var brd_id = this.getAttribute("value");
-			location.href = "/postList?brd_id=" + brd_id
-				+ "&brd_name=" + brd_name + "&page=1";
-		});
-		
-		$(".hover").hover(function(){
-			
-			$(this).addClass('active');
-			this.style.cursor = "pointer";
-			
-		}, function(){
-			
-			$(this).removeClass('active');
-			
-		});
-		
-		
-		
-	});
-</script>

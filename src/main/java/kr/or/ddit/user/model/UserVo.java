@@ -1,9 +1,12 @@
 package kr.or.ddit.user.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class UserVo implements HttpSessionBindingListener {
 	
@@ -17,9 +20,16 @@ public class UserVo implements HttpSessionBindingListener {
 	private String email;
 	private String tel;
 	private String profile;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birth;
 	private int rnum;
 	
+	
+	public String getFormattedBirth() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(birth);
+	}
 	
 	public int getRnum() {
 		return rnum;
@@ -118,7 +128,7 @@ public class UserVo implements HttpSessionBindingListener {
 		return "UserVo [userId=" + userId + ", name=" + name + ", alias="
 				+ alias + ", pass=" + pass + ", addr1=" + addr1 + ", addr2="
 				+ addr2 + ", zipcd=" + zipcd + ", email=" + email + ", tel="
-				+ tel + ", profile=" + profile + ", birth=" + birth
+				+ tel + ", profile=" + profile +  ", birth=" + birth
 				+ ", rownum=" + rnum + "]";
 	}
 
