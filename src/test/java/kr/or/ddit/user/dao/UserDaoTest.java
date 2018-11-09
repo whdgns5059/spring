@@ -19,7 +19,7 @@ public class UserDaoTest  extends ServiceDaoConfigTest{
 
 	@Resource(name="userDao")
 	private UserDaoInf userDao;
-	private final String TEST_USER_ID = "testUser2";
+	private final String TEST_USER_ID = "testUser3";
 	
 	
 	@Test
@@ -123,8 +123,8 @@ public class UserDaoTest  extends ServiceDaoConfigTest{
 		assertEquals(1, result);
 		
 		
-//		int delResult = userDao.deleteUser(TEST_USER_ID);
-//		assertEquals(0, delResult);
+		int delResult = userDao.deleteUser(TEST_USER_ID);
+		assertEquals(0, delResult);
 		
 	}
 	

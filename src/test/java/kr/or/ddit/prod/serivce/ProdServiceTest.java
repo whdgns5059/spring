@@ -9,14 +9,14 @@ import javax.annotation.Resource;
 import org.junit.Test;
 
 import kr.or.ddit.prod.model.ProdVo;
-import kr.or.ddit.prod.service.ProdService;
+import kr.or.ddit.prod.service.ProdServiceInf;
 import kr.or.ddit.test.ServiceDaoConfigTest;
 import kr.or.ddit.user.model.PageVo;
 
 public class ProdServiceTest extends ServiceDaoConfigTest{
 	
 	@Resource(name="prodService")
-	private ProdService prodService;
+	private ProdServiceInf prodService;
 
 
 	@Test

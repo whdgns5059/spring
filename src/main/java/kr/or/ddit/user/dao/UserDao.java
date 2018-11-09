@@ -2,52 +2,42 @@ package kr.or.ddit.user.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.springframework.stereotype.Repository;
+import javax.annotation.Resource;
 
-import kr.or.ddit.config.db.SqlFactoryBuilder;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.stereotype.Repository;
 import kr.or.ddit.user.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
 
 @Repository
 public class UserDao implements UserDaoInf{
 
+	@Resource(name="sqlSessionTemplate")
+	private SqlSessionTemplate template;
+
 	public List<UserVo> selectUserAll(){
 		
-		SqlSessionFactory sqlFactory = SqlFactoryBuilder.getSqlSessionFactory();
-		SqlSession session = sqlFactory.openSession();
-		List<UserVo> result = session.selectList("user.selectUserAll");
-		session.close();
+		List<UserVo> result = template.selectList("user.selectUserAll");
 		return result;
 	}
 	
 	
 	public UserVo selectUser(String userId){
 		
-		SqlSessionFactory sqlFactory = SqlFactoryBuilder.getSqlSessionFactory();
-		SqlSession session = sqlFactory.openSession();
-		UserVo result = session.selectOne("user.selectUser", userId);
-		session.close();
+		UserVo result = template.selectOne("user.selectUser", userId);
 		return result; 
 		
 	}
 	
 	public UserVo selectUser(UserVo userVo){
-		SqlSessionFactory sqlFactory = SqlFactoryBuilder.getSqlSessionFactory();
-		SqlSession session = sqlFactory.openSession();
-		UserVo result = session.selectOne("user.selectUserByVo", userVo);
-		session.close();
+		UserVo result = template.selectOne("user.selectUserByVo", userVo);
 		return result;
 	}
 
 
 	@Override
 	public List<UserVo> selectUserPageList(PageVo pageVo) {
-		SqlSessionFactory sqlFactory = SqlFactoryBuilder.getSqlSessionFactory();
-		SqlSession session = sqlFactory.openSession();
-		List<UserVo> result = session.selectList("user.selectUserPageList", pageVo);
-		session.close();
+		List<UserVo> result = template.selectList("user.selectUserPageList", pageVo);
 		return result;
 	}
 
@@ -61,10 +51,7 @@ public class UserDao implements UserDaoInf{
 	 */
 	@Override
 	public int getUserCnt() {
-		SqlSessionFactory sqlFactory = SqlFactoryBuilder.getSqlSessionFactory();
-		SqlSession session = sqlFactory.openSession();
-		int result = session.selectOne("user.getUserCnt");
-		session.close();
+		int result = template.selectOne("user.getUserCnt");
 		return result;
 	}
 
@@ -78,11 +65,7 @@ public class UserDao implements UserDaoInf{
 	 */
 	@Override
 	public int insertUser(UserVo userVo) {
-		SqlSessionFactory sqlFactory = SqlFactoryBuilder.getSqlSessionFactory();
-		SqlSession session = sqlFactory.openSession();
-		int insertCnt = session.insert("user.insertUser", userVo);
-		session.commit();
-		session.close();
+		int insertCnt = template.insert("user.insertUser", userVo);
 		
 		return insertCnt;
 	}
@@ -90,11 +73,7 @@ public class UserDao implements UserDaoInf{
 
 	@Override
 	public int deleteUser(String userId) {
-		SqlSessionFactory sqlFactory = SqlFactoryBuilder.getSqlSessionFactory();
-		SqlSession session = sqlFactory.openSession();
-		int deleteCnt = session.delete("user.deleteUser", userId);
-		session.commit();
-		session.close();
+		int deleteCnt = template.delete("user.deleteUser", userId);
 
 		return deleteCnt;
 	}
@@ -102,11 +81,7 @@ public class UserDao implements UserDaoInf{
 
 	@Override
 	public int updateUser(UserVo userVo) {
-		SqlSessionFactory sqlFactory = SqlFactoryBuilder.getSqlSessionFactory();
-		SqlSession session = sqlFactory.openSession();
-		int updateCnt = session.update("user.updateUser", userVo);
-		session.commit();
-		session.close();
+		int updateCnt = template.update("user.updateUser", userVo);
 
 		return updateCnt;
 	}

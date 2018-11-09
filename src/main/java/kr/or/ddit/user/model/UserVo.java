@@ -26,9 +26,22 @@ public class UserVo implements HttpSessionBindingListener {
 	private int rnum;
 	
 	
+	public UserVo() {}
+
+	public UserVo (String userID, String name) {
+		this.userId = userID;
+		this.name = name;
+	}
+	
+	
 	public String getFormattedBirth() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		return sdf.format(birth);
+		if(birth != null) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			return sdf.format(birth);
+		}else {
+			return "";
+		}
+
 	}
 	
 	public int getRnum() {
@@ -96,8 +109,6 @@ public class UserVo implements HttpSessionBindingListener {
 		this.profile = profile;
 	}
 
-	public UserVo(){}
-	
 	public String getUserId() {
 		return userId;
 	}

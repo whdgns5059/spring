@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.or.ddit.prod.model.ProdVo;
 import kr.or.ddit.prod.service.ProdService;
+import kr.or.ddit.prod.service.ProdServiceInf;
 import kr.or.ddit.user.model.PageVo;
 
 @Controller
@@ -19,7 +20,7 @@ public class ProdController {
 	
 	
 	@Resource(name="prodService")
-	private ProdService prodService;
+	private ProdServiceInf prodService;
 	
 	@RequestMapping("/prodPageList")
 	public String prodPageList(PageVo pageVo, Model model) {

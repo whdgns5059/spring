@@ -49,7 +49,10 @@
 	<!-- context 로 자동완성 가능... param-value만 수정하면 됨 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:kr/or/ddit/config/spring/root-context.xml </param-value>
+		<param-value>classpath:kr/or/ddit/config/spring/root-context.xml 
+					 classpath:kr/or/ddit/config/spring/aop-context.xml	
+					 classpath:kr/or/ddit/config/spring/datasource-context.xml	
+					 classpath:kr/or/ddit/config/spring/transaction-context.xml	</param-value>
 	</context-param>
 
 	<!-- Bootstraps the root web application context before servlet initialization -->

@@ -11,7 +11,6 @@ import kr.or.ddit.test.ServiceDaoConfigTest;
 
 public class FileServiceTest extends ServiceDaoConfigTest{
 
-	
 	@Resource(name="fileService")
 	private FileServiceInf fileService;
 	

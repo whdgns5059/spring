@@ -13,13 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.or.ddit.prod.model.ProdVo;
 import kr.or.ddit.prod.service.ProdService;
+import kr.or.ddit.prod.service.ProdServiceInf;
 import kr.or.ddit.test.ControllerTestConfig;
 import kr.or.ddit.user.model.PageVo;
 
 public class ProdControllerTest extends ControllerTestConfig{
 	
 	@Resource(name="prodService")
-	private ProdService prodService;
+	private ProdServiceInf prodService;
 
 	@Test
 	public void prodListTest() throws Exception {

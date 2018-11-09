@@ -3,6 +3,9 @@ package kr.or.ddit.board.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import kr.or.ddit.board.model.BoardVo;
@@ -10,6 +13,9 @@ import kr.or.ddit.board.model.BoardVo;
 //이름을 생략하면 클래스 첫 글자를 소문자로 한 이름이 spring bean 이름이 됨
 @Repository("boardDao")
 public class BoardDao implements BoardDaoInf{
+
+	@Resource(name="sqlSessionTemplate")
+	private SqlSessionTemplate template;
 
 	/**
 	* Method : selectBoardList
