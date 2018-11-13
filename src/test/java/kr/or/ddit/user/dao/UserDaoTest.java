@@ -29,7 +29,7 @@ public class UserDaoTest  extends ServiceDaoConfigTest{
 		List<UserVo> result = userDao.selectUserAll();
 		
 		/***Then***/
-		assertEquals(105, result.size());
+		assertEquals(119, result.size());
 	}
 	
 	@Test
@@ -41,7 +41,7 @@ public class UserDaoTest  extends ServiceDaoConfigTest{
 		/***Then***/
 		assertNotNull(userVo);
 		assertEquals("brown", userVo.getUserId());
-		assertEquals("브라운", userVo.getName());
+		assertEquals("김기동", userVo.getName());
 	}
 	
 	@Test
@@ -95,7 +95,7 @@ public class UserDaoTest  extends ServiceDaoConfigTest{
 		int count = userDao.getUserCnt();
 		
 		/***Then***/
-		assertEquals(105, count);
+		assertEquals(119, count);
 		
 		
 	}
@@ -124,7 +124,7 @@ public class UserDaoTest  extends ServiceDaoConfigTest{
 		
 		
 		int delResult = userDao.deleteUser(TEST_USER_ID);
-		assertEquals(0, delResult);
+		assertEquals(1, delResult);
 		
 	}
 	

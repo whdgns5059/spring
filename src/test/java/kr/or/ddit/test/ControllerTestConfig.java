@@ -20,7 +20,7 @@ import org.springframework.web.context.WebApplicationContext;
 //service, dao에 대한 설정 파일도 필요하다
 @ContextConfiguration(locations= {"classpath:kr/or/ddit/config/spring/root-context.xml",
 									"classpath:kr/or/ddit/config/spring/servlet-context.xml",
-									"classpath:kr/or/ddit/config/spring/datasource-context.xml",
+									"classpath:kr/or/ddit/config/spring/datasource-test-context.xml",
 							
 
 })

@@ -10,10 +10,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.or.ddit.board.dao.BoardDaoInf;
+import kr.or.ddit.test.ServiceDaoConfigTest;
 
-@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"classpath:kr/or/ddit/ioc/application-context.xml"})
-public class SpringScopeTest {
+public class SpringScopeTest extends ServiceDaoConfigTest{
 
 	//DI(의존성 주입)
 	@Resource(name="boardDao")

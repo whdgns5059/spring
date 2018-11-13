@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.or.ddit.board.dao.BoardDaoInf;
 import kr.or.ddit.board.service.BoardServiceInf;
+import kr.or.ddit.test.ServiceDaoConfigTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= {JavaConfig.class})

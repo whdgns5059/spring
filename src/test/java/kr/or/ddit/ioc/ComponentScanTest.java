@@ -16,17 +16,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import kr.or.ddit.board.dao.BoardDaoInf;
 import kr.or.ddit.board.model.BoardVo;
 import kr.or.ddit.board.service.BoardServiceInf;
+import kr.or.ddit.test.ServiceDaoConfigTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"classpath:kr/or/ddit/ioc/application-context-scan.xml"})
-public class ComponentScanTest {
+public class ComponentScanTest extends ServiceDaoConfigTest{
 
 	private Logger logger = LoggerFactory.getLogger(ComponentScanTest.class);
 	
 	@Resource(name="boardDao")
 	private BoardDaoInf boardDao;
 	
-	
+	@Resource(name="boardService")
+	private BoardServiceInf boardService;
 	/**
 	* Method : componentScanTest
 	* 작성자 : pc17
@@ -52,8 +54,6 @@ public class ComponentScanTest {
 		assertNotNull(boardDao);
 	}
 
-	@Resource(name="boardService")
-	private BoardServiceInf boardService;
 	
 	@Test
 	public void componentScanServiceTest() {

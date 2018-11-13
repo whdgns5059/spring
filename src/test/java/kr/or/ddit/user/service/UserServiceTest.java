@@ -25,7 +25,7 @@ public class UserServiceTest extends ServiceDaoConfigTest {
 		/***When***/
 		List<UserVo> result = userService.selectUserAll();
 		/***Then***/
-		assertEquals(105, result.size());
+		assertEquals(119, result.size());
 	}
 
 	@Test
@@ -36,7 +36,7 @@ public class UserServiceTest extends ServiceDaoConfigTest {
 		UserVo result = userService.selectUser(userId);
 		
 		/***Then***/
-		assertEquals("브라운", result.getName());
+		assertEquals("김기동", result.getName());
 	}
 
 	@Test
@@ -49,7 +49,7 @@ public class UserServiceTest extends ServiceDaoConfigTest {
 		UserVo result = userService.selectUser(userVo);
 		
 		/***Then***/
-		assertEquals("브라운", result.getName());
+		assertEquals("김기동", result.getName());
 	}
 	@Test
 	public void selectUserPageList(){
@@ -66,7 +66,7 @@ public class UserServiceTest extends ServiceDaoConfigTest {
 		
 		/***Then***/
 		assertEquals(10, result.size());
-		assertEquals(11, pageCnt);
+		assertEquals(12, pageCnt);
 	}
 	
 	@Test
@@ -76,7 +76,7 @@ public class UserServiceTest extends ServiceDaoConfigTest {
 		/***When***/
 		int result = userService.getUserCnt();
 		/***Then***/
-		assertEquals(11, result);
+		assertEquals(119, result);
 	}
 	
 	
